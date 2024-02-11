@@ -11,7 +11,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Select front dir
-        run : cd front
+        run : ls
       - name: 🛠️ Build React app
         run: npm run build  # Remplacez cette commande par celle qui construit votre application React
 
