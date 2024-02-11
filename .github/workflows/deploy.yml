@@ -16,7 +16,7 @@ jobs:
       - name: 🚚 Get latest code
         uses: actions/checkout@v3
         with:
-          fetch-depth: 0  # Spécifiez une profondeur de récupération complète pour éviter les répertoires emboîtés
+          fetch-depth: -1  # Spécifiez une profondeur de récupération complète pour éviter les répertoires emboîtés
           path: front  # Spécifiez le nom du dossier de projet ici
 
       - name: 📂 Sync files
