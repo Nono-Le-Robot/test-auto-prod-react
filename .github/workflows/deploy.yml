@@ -16,7 +16,8 @@ jobs:
       - name: 🚚 Get latest code
         uses: actions/checkout@v3
         with:
-          path: front  # Spécifiez le nom de votre dossier de projet ici
+          fetch-depth: 0  # Spécifiez une profondeur de récupération complète pour éviter les répertoires emboîtés
+          path: front  # Spécifiez le nom du dossier de projet ici
 
       - name: 📂 Sync files
         uses: SamKirkland/FTP-Deploy-Action@v4.3.4
