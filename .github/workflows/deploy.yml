@@ -20,7 +20,8 @@ jobs:
         run: npm install
         
       - name: 🛠️ Build React app
-        run: npm --prefix front run build # Remplacez cette commande par celle qui construit votre application React
+        working-directory: front
+        run: npm run build  # Remplacez cette commande par celle qui construit votre application React
 
       - name: 📂 Sync files
         uses: SamKirkland/FTP-Deploy-Action@v4.3.4
