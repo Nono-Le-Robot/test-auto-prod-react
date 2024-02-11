@@ -16,7 +16,7 @@ jobs:
       - name: 🚚 Get latest code
         uses: actions/checkout@v3
         with:
-          path: front  # Spécifiez le nom du dossier de projet ici
+          path: /home/runner/work/test-auto-prod-react/front
 
       - name: 📂 Sync files
         uses: SamKirkland/FTP-Deploy-Action@v4.3.4
