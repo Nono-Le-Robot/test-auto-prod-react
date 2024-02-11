@@ -11,7 +11,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: 🛠️ Build React app
-        run: npm --prefix front run build  # Utilisez --prefix pour spécifier le chemin du répertoire
+        working-directory: front
+        run: npm run build
 
       - name: 🚚 Get latest code
         uses: actions/checkout@v3
