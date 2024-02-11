@@ -10,15 +10,12 @@ jobs:
     name: 🎉 Deploy
     runs-on: ubuntu-latest
     steps:
-      - name: go back
-        run: cd ..
       - name: 🛠️ Build React app
         run: npm --prefix front run build  # Utilisez --prefix pour spécifier le chemin du répertoire
 
       - name: 🚚 Get latest code
         uses: actions/checkout@v3
         with:
-          fetch-depth: -1  # Spécifiez une profondeur de récupération complète pour éviter les répertoires emboîtés
           path: front  # Spécifiez le nom du dossier de projet ici
 
       - name: 📂 Sync files
@@ -27,4 +24,4 @@ jobs:
           server: ${{ secrets.FTP_SERVER }}
           username: ${{ secrets.FTP_USERNAME }}
           password: ${{ secrets.FTP_PASSWORD }}
-          local-dir: front/build  # Spécifiez le répertoire où se trouvent les fichiers construits
+          local-dir: build  # Spécifiez le répertoire où se trouvent les fichiers construits
