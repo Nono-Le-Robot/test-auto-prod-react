@@ -1,31 +1,23 @@
-on:
-  push:
-    branches:
-      - main  # Changez ceci en la branche que vous souhaitez déployer
-
+on: push
 name: 🚀 Deploy website on push
-
 jobs:
   web-deploy:
     name: 🎉 Deploy
     runs-on: ubuntu-latest
     steps:
-
-     
-
-      - name: 🚚 Get latest code
-        uses: actions/checkout@v3
-      
-      - name: install
-        run: npm install
+    
+    - name: 🚚 Get latest code
+      uses: actions/checkout@v3
+    
+    - name: 📂 Sync files
+      uses: SamKirkland/FTP-Deploy-Action@v4.3.4
+      with:
+        server: ${{ secrets.FTP_SERVER }}
+        username: ${{ secrets.FTP_USERNAME }}
+        password: ${{ secrets.FTP_PASSWORD }}  
         
-      - name: 🛠️ Build React app
-        run: npm run build  # Remplacez cette commande par celle qui construit votre application React
-
-      - name: 📂 Sync files
-        uses: SamKirkland/FTP-Deploy-Action@v4.3.4
-        with:
-          server: ${{ secrets.FTP_SERVER }}
-          username: ${{ secrets.FTP_USERNAME }}
-          password: ${{ secrets.FTP_PASSWORD }}
-          local-dir: build  # Spécifiez le répertoire où se trouvent les fichiers construits
+    - name: install
+      run: npm install
+        
+    - name: build
+      run: npm run build
