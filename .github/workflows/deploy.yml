@@ -10,6 +10,8 @@ jobs:
     name: 🎉 Deploy
     runs-on: ubuntu-latest
     steps:
+      - name: go back
+        run: cd..
       - name: 🛠️ Build React app
         run: npm --prefix front run build  # Utilisez --prefix pour spécifier le chemin du répertoire
 
