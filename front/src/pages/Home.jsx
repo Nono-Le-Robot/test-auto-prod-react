@@ -8,7 +8,7 @@ export default function Login() {
           <header className="App-header">
             <img src={logo} className="App-logo" alt="logo" />
             <p>
-              React deploy app
+              React deployed app !
             </p>
             <a
               className="App-link"
